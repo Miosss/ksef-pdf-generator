@@ -6,3 +6,12 @@ export { generateNaglowekUPO } from './lib-public/generators/UPO4_3/Naglowek';
 export { generateDokumentUPO } from './lib-public/generators/UPO4_3/Dokumenty';
 export { generateStyle } from './shared/PDF-functions';
 export * from './shared/enums/common.enum';
+
+// Public types
+export type { AdditionalDataTypes, FA2FakturaZaliczkowaData, FA3FakturaZaliczkowaData } from './lib-public/types/common.types';
+export type { TaxSummaryTypes } from './lib-public/types/tax-summary.types';
+export type * as FA1Types from './lib-public/types/fa1.types';
+export type * as FA2Types from './lib-public/types/fa2.types';
+export type * as FA3Types from './lib-public/types/fa3.types';
+export type * as UPO42Types from './lib-public/types/upo-v4_2.types';
+export type * as UPO43Types from './lib-public/types/upo-v4_3.types';
