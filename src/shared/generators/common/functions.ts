@@ -91,8 +91,13 @@ export function formatTime(data?: string, withoutSeconds?: boolean): string {
   return `${hours}:${minutes}:${seconds}`;
 }
 
+// Fork attribution: our branch name ([m<upstream version>]) instead of the upstream generator label
+export function createForkVersionLabel(): string {
+  return `[m${packageInfo.version}]`;
+}
+
 export function createVersionLabel(application?: string): string {
-  return `${application || i18n.t('invoice.footer.appName')} (ksef-pdf-generator - ${i18n.t('invoice.footer.version')} ${packageInfo.version})`;
+  return `${application || i18n.t('invoice.footer.appName')} ${createForkVersionLabel()}`;
 }
 
 export function unwrapText(value: any): any {

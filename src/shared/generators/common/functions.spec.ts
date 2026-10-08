@@ -154,12 +154,13 @@ describe('formatDateTimePl', () => {
 describe('createVersionLabel', () => {
   it('should create version label', () => {
     const versionLabel = createVersionLabel();
-    const version = versionLabel
-      .substring(0, versionLabel.length - 1)
-      .split(' ')
-      .pop();
     expect(versionLabel).toContain('Aplikacja Podatnika KSeF');
-    expect(versionLabel).toContain('ksef-pdf-generator');
-    expect(version).toMatch(/^(\d+\.)?(\d+\.)?(\*|\d+)$/);
+    // fork attribution: our branch name, m<upstream version>
+    expect(versionLabel).toMatch(/ \[m\d+\.\d+\.\d+\]$/);
+    expect(versionLabel).not.toContain('ksef-pdf-generator');
+  });
+
+  it('should keep the application name from the invoice', () => {
+    expect(createVersionLabel('Generator danych')).toMatch(/^Generator danych \[m\d+\.\d+\.\d+\]$/);
   });
 });

@@ -11,8 +11,8 @@ import { Content, ContentQr } from 'pdfmake/interfaces';
 import { AdditionalDataTypes } from '../../types/common.types';
 import i18n from 'i18next';
 import FormatTyp from '@shared/enums/common.enum';
-import { version } from '../../../../package.json';
 import { CustomizationID } from '../../types/pef-invoice.types';
+import { createForkVersionLabel } from '@shared/generators/common/functions';
 
 export function generateFooter(
   additionalData: AdditionalDataTypes,
@@ -40,7 +40,7 @@ export function generateFooter(
         {
           stack: createLabelText(
             i18n.t('invoice.footer.generatedIn'),
-            i18n.t('pef.stepper.generatorVersion', { version: version })
+            createForkVersionLabel()
           ),
           margin: [0, 8, 0, 0],
         },
